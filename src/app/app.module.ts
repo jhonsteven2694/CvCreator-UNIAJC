@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FirstTemplateComponent } from './components/cv-templates/first-template/first-template.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FooterComponent } from './components/footer/footer.component';
     LogInComponent,
     WelcomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    FirstTemplateComponent
   ],
   imports: [
     BrowserModule,
