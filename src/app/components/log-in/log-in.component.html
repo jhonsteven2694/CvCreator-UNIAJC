@@ -7,14 +7,19 @@
     <form class="example-form">
       <mat-card-content>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Username" />
+          <input matInput placeholder="Usuario" />
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Password" type="password" />
+          <input matInput placeholder="Contraseña" type="password" />
         </mat-form-field>
       </mat-card-content>
       <button mat-stroked-button color="primary" class="btn-block">Iniciar Sesión</button>
     </form>
+    <div class="space-containers" style="text-align:center">
+      <button mat-icon-button routerLink="/welcome">
+        <mat-icon>home</mat-icon>
+      </button>
+    </div>
   </mat-card>
 </div>
