@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { HeaderComponent } from './components/header/header.component';
+import { FirstTemplateComponent } from './components/cv-templates/first-template/first-template.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'header',
     component: HeaderComponent
+  },
+  {
+    path: 'first-template',
+    component: FirstTemplateComponent
   }
 ];
 
