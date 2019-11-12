@@ -9,12 +9,13 @@ import { SecondTemplateComponent } from './components/cv-templates/second-templa
 import { PreviewSecondTemplateComponent } from './components/cv-templates/second-template/preview-second-template/preview-second-template.component';
 import { ThirdTemplateComponent } from './components/cv-templates/third-template/third-template.component';
 import { PreviewThirdTemplateComponent } from './components/cv-templates/third-template/preview-third-template/preview-third-template.component';
+import { HomeComponent } from './components/home/home.component';
+import { CallbackComponent } from './components/callback/callback.component';
 
 const routes: Routes = [
   {
-    path: '**',
-    pathMatch: 'full',
-    redirectTo: 'login'
+    path: 'home',
+    component: HomeComponent
   },
   {
     path: 'welcome',
@@ -51,7 +52,16 @@ const routes: Routes = [
   {
     path: 'third-template/preview-third-template',
     component: PreviewThirdTemplateComponent
-  }
+  },
+  {
+    path: 'callback',
+    component: CallbackComponent
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: 'home'
+  },
 ];
 
 @NgModule({

@@ -18,6 +18,8 @@ import { ThirdTemplateComponent } from './components/cv-templates/third-template
 import { PreviewSecondTemplateComponent } from './components/cv-templates/second-template/preview-second-template/preview-second-template.component';
 import { PreviewThirdTemplateComponent } from './components/cv-templates/third-template/preview-third-template/preview-third-template.component';
 import { PreviewFirstTemplateComponent } from './components/cv-templates/first-template/preview-first-template/preview-first-template.component';
+import { CallbackComponent } from './components/callback/callback.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { PreviewFirstTemplateComponent } from './components/cv-templates/first-t
     ThirdTemplateComponent,
     PreviewSecondTemplateComponent,
     PreviewThirdTemplateComponent,
-    PreviewFirstTemplateComponent
+    PreviewFirstTemplateComponent,
+    CallbackComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
