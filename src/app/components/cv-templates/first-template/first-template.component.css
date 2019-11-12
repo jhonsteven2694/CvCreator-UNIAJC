@@ -110,7 +110,6 @@ p {
 
 #cv {
   width: 90%;
-  max-width: 800px;
   background: #f3f3f3;
   margin: 30px auto;
 }
@@ -439,4 +438,9 @@ section:last-child {
   -webkit-animation-delay: 0, 2.5s;
   -moz-animation-delay: 0, 2.5s;
   animation-delay: 0, 2.5s;
+}
+
+.margin-form{
+  margin-left: 10px;
+  margin-right: 10px;
 }

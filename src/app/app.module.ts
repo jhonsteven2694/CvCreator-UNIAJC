@@ -4,6 +4,7 @@ import { AngularMaterialModule } from './angular-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LogInComponent } from './components/log-in/log-in.component';
@@ -12,6 +13,11 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FirstTemplateComponent } from './components/cv-templates/first-template/first-template.component';
+import { SecondTemplateComponent } from './components/cv-templates/second-template/second-template.component';
+import { ThirdTemplateComponent } from './components/cv-templates/third-template/third-template.component';
+import { PreviewSecondTemplateComponent } from './components/cv-templates/second-template/preview-second-template/preview-second-template.component';
+import { PreviewThirdTemplateComponent } from './components/cv-templates/third-template/preview-third-template/preview-third-template.component';
+import { PreviewFirstTemplateComponent } from './components/cv-templates/first-template/preview-first-template/preview-first-template.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +26,12 @@ import { FirstTemplateComponent } from './components/cv-templates/first-template
     WelcomeComponent,
     HeaderComponent,
     FooterComponent,
-    FirstTemplateComponent
+    FirstTemplateComponent,
+    SecondTemplateComponent,
+    ThirdTemplateComponent,
+    PreviewSecondTemplateComponent,
+    PreviewThirdTemplateComponent,
+    PreviewFirstTemplateComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +40,8 @@ import { FirstTemplateComponent } from './components/cv-templates/first-template
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

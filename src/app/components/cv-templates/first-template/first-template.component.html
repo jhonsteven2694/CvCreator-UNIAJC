@@ -5,16 +5,22 @@
     </div>
 
     <div id="name">
-      <h1 class="quickFade delayTwo">Steven Ordóñez</h1>
+      <h1 class="quickFade delayTwo">{{ users[0]?.name }}</h1>
       <h2 class="quickFade delayThree">Desarrollador de Software</h2>
     </div>
 
     <div id="contactDetails" class="quickFade delayFour">
-      <ul>
-        <li>Email: <a href="mailto:joe@bloggs.com" target="_blank">joe@bloggs.com</a></li>
-        <li>Pagina Web: <a href="http://www.bloggs.com">www.bloggs.com</a></li>
-        <li>Celular: 01234567890</li>
-      </ul>
+      <mat-form-field class="margin-form">
+        <input type="text" matInput placeholder="Correo" value="{{users[0]?.email}}">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="margin-form">
+        <input type="text" matInput placeholder="Pagina Web" value="{{users[0]?.website}}">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="margin-form">
+        <input type="text" matInput placeholder="Celular" value="{{users[0]?.phone}}">
+      </mat-form-field>
     </div>
     <div class="clear"></div>
   </div>
@@ -23,16 +29,80 @@
     <section>
       <article>
         <div class="sectionTitle">
-          <h1>Perfil Profesional</h1>
+          <h1>Información Personal</h1>
         </div>
 
         <div class="sectionContent">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dolor metus, interdum at scelerisque in,
-            porta at lacus. Maecenas dapibus luctus cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis
-            dignissim. Proin id sapien quis libero interdum porttitor.
-          </p>
+          <form action="" #personalInformation>
+            <mat-form-field class="margin-form">
+              <input type="text" matInput placeholder="Documento">
+            </mat-form-field>
+
+            <mat-form-field class="margin-form">
+              <mat-select placeholder="Tipo de Documento" #tipoDocumento>
+                <mat-option *ngFor="let td of tipoDocumentoId" value="td.name">
+                  {{ td.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="margin-form">
+              <input type="text" matInput placeholder="Nombre" value="{{users[0]?.name}}">
+            </mat-form-field>
+
+            <mat-form-field class="margin-form">
+              <input type="text" matInput placeholder="Apellidos">
+            </mat-form-field>
+
+            <mat-form-field class="margin-form">
+              <input matInput [matDatepicker]="picker" placeholder="Fecha de Nacimiento">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <br>
+
+            <mat-form-field class="margin-form">
+              <mat-select placeholder="Estado" #estado>
+                <mat-option *ngFor="let e of estadosId" value="e.name">
+                  {{ e.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="margin-form">
+              <mat-select placeholder="Ciudad" #ciudad>
+                <mat-option *ngFor="let c of ciudadesId" value="c.name">
+                  {{ c.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="margin-form">
+              <mat-select placeholder="Barrio" #barrio>
+                <mat-option *ngFor="let b of barriosId" value="b.name">
+                  {{ b.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <br>
+
+            <mat-form-field class="margin-form">
+              <input type="text" matInput placeholder="Teléfono">
+            </mat-form-field>
+
+            <mat-form-field class="margin-form">
+              <mat-select placeholder="Estado Civil" #estadoCivil>
+                <mat-option *ngFor="let m of maritalStatusesId" value="m.name">
+                  {{ m.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <button mat-stroked-button color="primary" class="btn-block"
+              (click)="savePersonalInformation(personalInformation)">Guardar</button>
+          </form>
         </div>
       </article>
       <div class="clear"></div>
@@ -44,34 +114,47 @@
       </div>
 
       <div class="sectionContent">
-        <article>
-          <h2>Cargo en la empresa</h2>
-          <p class="subDetails">Abril 2011 - Actualmente</p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit.
-            Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum
-            porttitor.
-          </p>
-        </article>
+        <form action="" #experienciaLaboral>
+          <mat-form-field class="margin-form">
+            <input type="text" matInput placeholder="Empresa">
+          </mat-form-field>
 
-        <article>
-          <h2>Cargo en la empresa</h2>
-          <p class="subDetails">Enero 2007 - Marzo 2011</p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit.
-            Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum
-            porttitor.
-          </p>
-        </article>
+          <mat-form-field class="margin-form">
+            <input type="text" matInput placeholder="Cargo">
+          </mat-form-field>
 
-        <article>
-          <h2>Cargo en la empresa</h2>
-          <p class="subDetails">Octubre 2004 - Diciembre 2006</p>
+          <mat-form-field class="margin-form">
+            <input type="text" matInput placeholder="Actual?">
+          </mat-form-field>
+
+          <mat-form-field class="margin-form">
+            <input matInput [matDatepicker]="pickerInicio" placeholder="Fecha de Inicio">
+            <mat-datepicker-toggle matSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+            <mat-datepicker #pickerInicio></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field class="margin-form">
+            <input matInput [matDatepicker]="pickerFin" placeholder="Fecha de Término">
+            <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>
+            <mat-datepicker #pickerFin></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field class="margin-form">
+            <input type="text" matInput placeholder="Funciones" #fun>
+          </mat-form-field>
+
+          <button mat-stroked-button color="primary" class="btn-block"
+            (click)="addLaboralExperience(experienciaLaboral)">Guardar</button>
+        </form>
+        <br>
+        <article *ngFor="let el of laboralExperiences">
+          <h2>{{ el.cargo }}</h2>
+          <p class="details">{{ el.empresa }}</p>
+          <p class="subDetails">{{ el.inicio }} - {{ el.fin }}</p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit.
-            Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum
-            porttitor.
+            {{ el.funciones }}
           </p>
+          <br>
         </article>
       </div>
       <div class="clear"></div>
@@ -83,15 +166,15 @@
       </div>
 
       <div class="sectionContent">
+        <mat-form-field class="margin-form">
+          <input type="text" matInput placeholder="Nueva Habilidad" #habilidad>
+        </mat-form-field>
+
+        <button mat-stroked-button color="primary" class="btn-block"
+          (click)="addHabilidad(habilidad.value)">Guardar</button>
+
         <ul class="keySkills">
-          <li>Habilidad 1</li>
-          <li>Habilidad 2</li>
-          <li>Habilidad 3</li>
-          <li>Habilidad 4</li>
-          <li>Habilidad 5</li>
-          <li>Habilidad 6</li>
-          <li>Habilidad 7</li>
-          <li>Habilidad 8</li>
+          <li *ngFor="let h of habilidades" value="h"> {{ h }} </li>
         </ul>
       </div>
       <div class="clear"></div>
@@ -103,22 +186,40 @@
       </div>
 
       <div class="sectionContent">
-        <article>
-          <h2>UNIAJC</h2>
-          <p class="subDetails">Ingeniería de Software</p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit.
-            Curabitur non consequat enim.
-          </p>
-        </article>
+        <form action="" #studiesForm>
+          <mat-form-field class="margin-form">
+            <input type="text" matInput placeholder="Institución">
+          </mat-form-field>
 
-        <article>
-          <h2>SENA</h2>
-          <p class="subDetails">Tecnológo en sistemas</p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit.
-            Curabitur non consequat enim.
-          </p>
+          <mat-form-field class="margin-form">
+            <input type="text" matInput placeholder="Nivel">
+          </mat-form-field>
+
+          <mat-form-field class="margin-form">
+            <input type="text" matInput placeholder="Actual?">
+          </mat-form-field>
+
+          <mat-form-field class="margin-form">
+            <input matInput [matDatepicker]="pickerInicioEstudio" placeholder="Fecha de Inicio">
+            <mat-datepicker-toggle matSuffix [for]="pickerInicioEstudio"></mat-datepicker-toggle>
+            <mat-datepicker #pickerInicioEstudio></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field class="margin-form">
+            <input matInput [matDatepicker]="pickerFinEstudio" placeholder="Fecha de Término">
+            <mat-datepicker-toggle matSuffix [for]="pickerFinEstudio"></mat-datepicker-toggle>
+            <mat-datepicker #pickerFinEstudio></mat-datepicker>
+          </mat-form-field>
+
+          <button mat-stroked-button color="primary" class="btn-block"
+            (click)="addStudies(studiesForm)">Guardar</button>
+        </form>
+        <br>
+        <article *ngFor="let s of studies">
+          <h2>{{ s.institucion }}</h2>
+          <p class="subDetails">{{ s.nivel }}</p>
+          <p class="subDetails">{{ s.inicio }} - {{ s.fin }}</p>
+          <br>
         </article>
       </div>
       <div class="clear"></div>
