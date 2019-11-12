@@ -2,16 +2,24 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-}
-
-body {
-    background-image: url(https://lh4.googleusercontent.com/-XplyTa1Za-I/VMSgIyAYkHI/AAAAAAAADxM/oL-rD6VP4ts/w1184-h666/Android-Lollipop-wallpapers-Google-Now-Wallpaper-2.png);
+    background-image: url(https://www.linuxuniversity.co/wp-content/uploads/2015/11/Paralax-Home-Background-4.jpg) !important;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
     font-family: 'Roboto', sans-serif;
+   
 }
+
+.bg-img {
+    background-image: url('/assets/office-img.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+  }
 
 .app-header {
     justify-content: space-between;
@@ -57,20 +65,7 @@ body {
     z-index: -1;
 }
 
-.box:before {
-    content: "";
-    width: 100%;
-    height: 30px;
-    border-radius: 10px;
-    position: absolute;
-    top: -10px;
-    background: rgba(255, 255, 255, .6);
-    left: 0;
-    transform: scale(.95);
-    -webkit-transform: scale(.95);
-    -ms-transform: scale(.95);
-    z-index: -1;
-}
+
 
 .login-wrapper .example-form {
     min-width: 100%;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-log-in',
@@ -9,15 +9,19 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class LogInComponent implements OnInit {
 
   loginForm = this.fb.group({
-    email: ['', Validators.required],
-    password: ['', Validators.required],
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
   });
 
   hide = true;
 
   constructor(private fb: FormBuilder) { }
 
-  
+  getErrorMessage() {
+    return this.loginForm['email'].hasError('required') ? 'You must enter a value' :
+        this.loginForm['email'].hasError('email') ? 'Not a valid email' :
+            '';
+  }
 
   ngOnInit() {
   }

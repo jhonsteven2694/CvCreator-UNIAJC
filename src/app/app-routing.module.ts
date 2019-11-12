@@ -12,9 +12,9 @@ import { PreviewThirdTemplateComponent } from './components/cv-templates/third-t
 
 const routes: Routes = [
   {
-    path: '',
+    path: '**',
     pathMatch: 'full',
-    redirectTo: 'welcome'
+    redirectTo: 'login'
   },
   {
     path: 'welcome',
