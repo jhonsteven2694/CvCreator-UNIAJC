@@ -1,0 +1,23 @@
+<div class="bg-img">
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+        <mat-card-header>
+            <div>
+                <mat-card-title>Cv Creator</mat-card-title>
+            </div>
+        </mat-card-header>
+        <mat-card-content>
+            <div style="margin-top: 15px;" fxLayoutAlign="center center"> 
+                <mat-form-field>
+                    <mat-label>Elige tu Profesión</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let profesion of profesiones" [value]="profesion.value">
+                            {{profesion.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+</div>

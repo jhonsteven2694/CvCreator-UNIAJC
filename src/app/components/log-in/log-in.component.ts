@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-log-in',
@@ -15,13 +16,7 @@ export class LogInComponent implements OnInit {
 
   hide = true;
 
-  constructor(private fb: FormBuilder) { }
-
-  getErrorMessage() {
-    return this.loginForm['email'].hasError('required') ? 'You must enter a value' :
-        this.loginForm['email'].hasError('email') ? 'Not a valid email' :
-            '';
-  }
+  constructor(private fb: FormBuilder, public auth: AuthService) { }
 
   ngOnInit() {
   }

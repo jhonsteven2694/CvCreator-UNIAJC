@@ -5,12 +5,12 @@
         <div>
           <mat-card-title>Cv Creator</mat-card-title>
         </div>
-        <div style="margin-top: 15px;">
-          <mat-card-subtitle>Inicio Sesión</mat-card-subtitle>
+        <div>
+          <mat-card-subtitle >Gestiona tu hoja de vida con las plantillas que te ofrecemos</mat-card-subtitle>
         </div>
       </mat-card-header>
-
-      <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-card-content>
+        <!--<form class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <mat-card-content>
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Usuario" formControlName="email" required />
@@ -25,9 +25,18 @@
             </button>
           </mat-form-field>
         </mat-card-content>
-        <button mat-stroked-button color="primary" class="btn-block" type="submit" [disabled]="!loginForm.valid">Iniciar
+        <button mat-stroked-button color="primary" class="btn-block" (click)="auth.login()" *ngIf="!auth.loggedIn" [disabled]="!loginForm.valid">Iniciar
           Sesión</button>
-      </form>
+      </form>-->
+        <div style="margin-bottom: 15px;">
+          <button mat-stroked-button color="primary" class="btn-block" (click)="auth.login()" *ngIf="!auth.loggedIn">Iniciar
+            Sesión</button>
+        </div>
+        <div>
+          <button mat-stroked-button color="primary" class="btn-block" (click)="auth.login()" *ngIf="!auth.loggedIn">Registrarse</button>
+        </div>
+      </mat-card-content>
+
     </mat-card>
   </div>
 </div>
