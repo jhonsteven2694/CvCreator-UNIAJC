@@ -1,74 +1,90 @@
-<div>
-  <mat-toolbar color="primary">
-      <mat-toolbar-row>
-          <span>Cv Creator</span>
-          <span class="example-spacer"></span>
-          <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">account_circle</mat-icon>
-          <span>Steven Ordóñez</span>
-      </mat-toolbar-row>
-  </mat-toolbar>    
-</div>
+<app-nav-bar></app-nav-bar>
 <div style="text-align: center;">
-<h2>Elegir Plantilla</h2>
+  <h2>Elegir Plantilla</h2>
 </div>
 
-
 <div>
-<mat-card>
-      <div fxLayout="row">
-<mat-card class="example-card" style="margin:10px;cursor:pointer" tabindex=0>
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>PLANTILLA GERENCIAL</mat-card-title>
-        <mat-card-subtitle></mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://speckyboy.com/wp-content/uploads/2010/05/joe-bloggs-free-resume-template-html.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-        <p>
-          Plantilla tipo ejecutiva que hara ver tu hoja de vida atractiva en el ambito gerencial.
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>ACEPTAR</button>
-        
-      </mat-card-actions>
-    </mat-card>
-    <mat-card class="example-card" style="margin:10px;cursor:pointer" tabindex=0>
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>PLANTILLA INFORMAL</mat-card-title>
-            <mat-card-subtitle> </mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src="https://speckyboy.com/wp-content/uploads/2010/05/joe-bloggs-free-resume-template-html.jpg" alt="Photo of a Shiba Inu">
-          <mat-card-content>
-            <p>
-              Plantilla tipo informal la cual hace ver tu hoja de vida mas llamativa hacia el mundo laboral.
-            </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-button>ACEPTAR</button>
-            
-          </mat-card-actions>
-        </mat-card>
-        <mat-card class="example-card" style="margin:10px;cursor:pointer" tabindex=0>
-              <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title>PLANTILLA MILLENIAL</mat-card-title>
-                
-              </mat-card-header>
-              <img mat-card-image src="https://speckyboy.com/wp-content/uploads/2010/05/joe-bloggs-free-resume-template-html.jpg" alt="Photo of a Shiba Inu">
-              <mat-card-content>
-                <p>
-                  Plantilla Millenial para visualizar la forma mas contemporanea de tu estilo.
-                </p>
-              </mat-card-content>
-              <mat-card-actions>
-                <button mat-button>ACEPTAR</button>
-                
-              </mat-card-actions>
-            </mat-card>
-
-              
-      </div>
-    </mat-card>
-  </div>
+  <mat-card>
+    <div fxLayout="row">
+      <mat-card
+        class="example-card"
+        style="margin:10px;cursor:pointer"
+        tabindex="0"
+      >
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>PLANTILLA GERENCIAL</mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="https://speckyboy.com/wp-content/uploads/2010/05/joe-bloggs-free-resume-template-html.jpg"
+          alt="Photo of a Shiba Inu"
+        />
+        <mat-card-content>
+          <p>
+            Plantilla tipo ejecutiva que hara ver tu hoja de vida atractiva en
+            el ambito gerencial.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            mat-button
+            routerLink="/first-template/preview-first-template"
+          >
+            ACEPTAR
+          </button>
+        </mat-card-actions>
+      </mat-card>
+      <mat-card
+        class="example-card"
+        style="margin:10px;cursor:pointer"
+        tabindex="0"
+      >
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>PLANTILLA INFORMAL</mat-card-title>
+          <mat-card-subtitle> </mat-card-subtitle>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="https://speckyboy.com/wp-content/uploads/2010/05/joe-bloggs-free-resume-template-html.jpg"
+          alt="Photo of a Shiba Inu"
+        />
+        <mat-card-content>
+          <p>
+            Plantilla tipo informal la cual hace ver tu hoja de vida mas
+            llamativa hacia el mundo laboral.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>ACEPTAR</button>
+        </mat-card-actions>
+      </mat-card>
+      <mat-card
+        class="example-card"
+        style="margin:10px;cursor:pointer"
+        tabindex="0"
+      >
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>PLANTILLA MILLENIAL</mat-card-title>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="https://speckyboy.com/wp-content/uploads/2010/05/joe-bloggs-free-resume-template-html.jpg"
+          alt="Photo of a Shiba Inu"
+        />
+        <mat-card-content>
+          <p>
+            Plantilla Millenial para visualizar la forma mas contemporanea de tu
+            estilo.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>ACEPTAR</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-card>
+</div>

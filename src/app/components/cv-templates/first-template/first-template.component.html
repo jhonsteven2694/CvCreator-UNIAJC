@@ -1,3 +1,4 @@
+<app-nav-bar></app-nav-bar>
 <div id="cv" class="instaFade">
   <div class="mainDetails">
     <div id="headshot" class="quickFade">
@@ -11,15 +12,30 @@
 
     <div id="contactDetails" class="quickFade delayFour">
       <mat-form-field class="margin-form">
-        <input type="text" matInput placeholder="Correo" value="{{users[0]?.email}}">
+        <input
+          type="text"
+          matInput
+          placeholder="Correo"
+          value="{{ users[0]?.email }}"
+        />
       </mat-form-field>
-      <br>
+      <br />
       <mat-form-field class="margin-form">
-        <input type="text" matInput placeholder="Pagina Web" value="{{users[0]?.website}}">
+        <input
+          type="text"
+          matInput
+          placeholder="Pagina Web"
+          value="{{ users[0]?.website }}"
+        />
       </mat-form-field>
-      <br>
+      <br />
       <mat-form-field class="margin-form">
-        <input type="text" matInput placeholder="Celular" value="{{users[0]?.phone}}">
+        <input
+          type="text"
+          matInput
+          placeholder="Celular"
+          value="{{ users[0]?.phone }}"
+        />
       </mat-form-field>
     </div>
     <div class="clear"></div>
@@ -35,7 +51,7 @@
         <div class="sectionContent">
           <form action="" #personalInformation>
             <mat-form-field class="margin-form">
-              <input type="text" matInput placeholder="Documento">
+              <input type="text" matInput placeholder="Documento" />
             </mat-form-field>
 
             <mat-form-field class="margin-form">
@@ -47,23 +63,35 @@
             </mat-form-field>
 
             <mat-form-field class="margin-form">
-              <input type="text" matInput placeholder="Nombre" value="{{users[0]?.name}}">
+              <input
+                type="text"
+                matInput
+                placeholder="Nombre"
+                value="{{ users[0]?.name }}"
+              />
             </mat-form-field>
 
             <mat-form-field class="margin-form">
-              <input type="text" matInput placeholder="Apellidos">
+              <input type="text" matInput placeholder="Apellidos" />
             </mat-form-field>
 
             <mat-form-field class="margin-form">
-              <input matInput [matDatepicker]="picker" placeholder="Fecha de Nacimiento">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                placeholder="Fecha de Nacimiento"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
-            <br>
+            <br />
 
             <mat-form-field class="margin-form">
-              <mat-select placeholder="Estado" #estado>
+              <mat-select placeholder="Departamento" #estado>
                 <mat-option *ngFor="let e of estadosId" value="e.name">
                   {{ e.name }}
                 </mat-option>
@@ -86,10 +114,10 @@
               </mat-select>
             </mat-form-field>
 
-            <br>
+            <br />
 
             <mat-form-field class="margin-form">
-              <input type="text" matInput placeholder="Teléfono">
+              <input type="text" matInput placeholder="Teléfono" />
             </mat-form-field>
 
             <mat-form-field class="margin-form">
@@ -100,8 +128,14 @@
               </mat-select>
             </mat-form-field>
 
-            <button mat-stroked-button color="primary" class="btn-block"
-              (click)="savePersonalInformation(personalInformation)">Guardar</button>
+            <button
+              mat-stroked-button
+              color="primary"
+              class="btn-block"
+              (click)="savePersonalInformation(personalInformation)"
+            >
+              Guardar
+            </button>
           </form>
         </div>
       </article>
@@ -116,37 +150,57 @@
       <div class="sectionContent">
         <form action="" #experienciaLaboral>
           <mat-form-field class="margin-form">
-            <input type="text" matInput placeholder="Empresa">
+            <input type="text" matInput placeholder="Empresa" />
           </mat-form-field>
 
           <mat-form-field class="margin-form">
-            <input type="text" matInput placeholder="Cargo">
+            <input type="text" matInput placeholder="Cargo" />
           </mat-form-field>
 
           <mat-form-field class="margin-form">
-            <input type="text" matInput placeholder="Actual?">
+            <input type="text" matInput placeholder="Actual?" />
           </mat-form-field>
 
           <mat-form-field class="margin-form">
-            <input matInput [matDatepicker]="pickerInicio" placeholder="Fecha de Inicio">
-            <mat-datepicker-toggle matSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+            <input
+              matInput
+              [matDatepicker]="pickerInicio"
+              placeholder="Fecha de Inicio"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="pickerInicio"
+            ></mat-datepicker-toggle>
             <mat-datepicker #pickerInicio></mat-datepicker>
           </mat-form-field>
 
           <mat-form-field class="margin-form">
-            <input matInput [matDatepicker]="pickerFin" placeholder="Fecha de Término">
-            <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>
+            <input
+              matInput
+              [matDatepicker]="pickerFin"
+              placeholder="Fecha de Término"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="pickerFin"
+            ></mat-datepicker-toggle>
             <mat-datepicker #pickerFin></mat-datepicker>
           </mat-form-field>
 
           <mat-form-field class="margin-form">
-            <input type="text" matInput placeholder="Funciones" #fun>
+            <input type="text" matInput placeholder="Funciones" #fun />
           </mat-form-field>
 
-          <button mat-stroked-button color="primary" class="btn-block"
-            (click)="addLaboralExperience(experienciaLaboral)">Guardar</button>
+          <button
+            mat-stroked-button
+            color="primary"
+            class="btn-block"
+            (click)="addLaboralExperience(experienciaLaboral)"
+          >
+            Guardar
+          </button>
         </form>
-        <br>
+        <br />
         <article *ngFor="let el of laboralExperiences">
           <h2>{{ el.cargo }}</h2>
           <p class="details">{{ el.empresa }}</p>
@@ -154,7 +208,7 @@
           <p>
             {{ el.funciones }}
           </p>
-          <br>
+          <br />
         </article>
       </div>
       <div class="clear"></div>
@@ -167,14 +221,25 @@
 
       <div class="sectionContent">
         <mat-form-field class="margin-form">
-          <input type="text" matInput placeholder="Nueva Habilidad" #habilidad>
+          <input
+            type="text"
+            matInput
+            placeholder="Nueva Habilidad"
+            #habilidad
+          />
         </mat-form-field>
 
-        <button mat-stroked-button color="primary" class="btn-block"
-          (click)="addHabilidad(habilidad.value)">Guardar</button>
+        <button
+          mat-stroked-button
+          color="primary"
+          class="btn-block"
+          (click)="addHabilidad(habilidad.value)"
+        >
+          Guardar
+        </button>
 
         <ul class="keySkills">
-          <li *ngFor="let h of habilidades" value="h"> {{ h }} </li>
+          <li *ngFor="let h of habilidades" value="h">{{ h }}</li>
         </ul>
       </div>
       <div class="clear"></div>
@@ -188,38 +253,58 @@
       <div class="sectionContent">
         <form action="" #studiesForm>
           <mat-form-field class="margin-form">
-            <input type="text" matInput placeholder="Institución">
+            <input type="text" matInput placeholder="Institución" />
           </mat-form-field>
 
           <mat-form-field class="margin-form">
-            <input type="text" matInput placeholder="Nivel">
+            <input type="text" matInput placeholder="Nivel" />
           </mat-form-field>
 
           <mat-form-field class="margin-form">
-            <input type="text" matInput placeholder="Actual?">
+            <input type="text" matInput placeholder="Actual?" />
           </mat-form-field>
 
           <mat-form-field class="margin-form">
-            <input matInput [matDatepicker]="pickerInicioEstudio" placeholder="Fecha de Inicio">
-            <mat-datepicker-toggle matSuffix [for]="pickerInicioEstudio"></mat-datepicker-toggle>
+            <input
+              matInput
+              [matDatepicker]="pickerInicioEstudio"
+              placeholder="Fecha de Inicio"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="pickerInicioEstudio"
+            ></mat-datepicker-toggle>
             <mat-datepicker #pickerInicioEstudio></mat-datepicker>
           </mat-form-field>
 
           <mat-form-field class="margin-form">
-            <input matInput [matDatepicker]="pickerFinEstudio" placeholder="Fecha de Término">
-            <mat-datepicker-toggle matSuffix [for]="pickerFinEstudio"></mat-datepicker-toggle>
+            <input
+              matInput
+              [matDatepicker]="pickerFinEstudio"
+              placeholder="Fecha de Término"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="pickerFinEstudio"
+            ></mat-datepicker-toggle>
             <mat-datepicker #pickerFinEstudio></mat-datepicker>
           </mat-form-field>
 
-          <button mat-stroked-button color="primary" class="btn-block"
-            (click)="addStudies(studiesForm)">Guardar</button>
+          <button
+            mat-stroked-button
+            color="primary"
+            class="btn-block"
+            (click)="addStudies(studiesForm)"
+          >
+            Guardar
+          </button>
         </form>
-        <br>
+        <br />
         <article *ngFor="let s of studies">
           <h2>{{ s.institucion }}</h2>
           <p class="subDetails">{{ s.nivel }}</p>
           <p class="subDetails">{{ s.inicio }} - {{ s.fin }}</p>
-          <br>
+          <br />
         </article>
       </div>
       <div class="clear"></div>
@@ -227,13 +312,18 @@
   </div>
 </div>
 <script type="text/javascript">
-  var gaJsHost = 'https:' == document.location.protocol ? 'https://ssl.' : 'http://www.';
+  var gaJsHost =
+    "https:" == document.location.protocol ? "https://ssl." : "http://www.";
   document.write(
-    unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E")
+    unescape(
+      "%3Cscript src='" +
+        gaJsHost +
+        "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"
+    )
   );
 </script>
 <script type="text/javascript">
-  var pageTracker = _gat._getTracker('UA-3753241-1');
+  var pageTracker = _gat._getTracker("UA-3753241-1");
   pageTracker._initData();
   pageTracker._trackPageview();
 </script>

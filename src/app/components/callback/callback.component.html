@@ -1,23 +1,46 @@
+<ng-template #loader>
+  <app-loader [loading]="true"></app-loader>
+</ng-template>
+
 <div class="bg-img">
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
     <mat-card class="box">
-        <mat-card-header>
-            <div>
-                <mat-card-title>Cv Creator</mat-card-title>
-            </div>
-        </mat-card-header>
-        <mat-card-content>
-            <div style="margin-top: 15px;" fxLayoutAlign="center center"> 
-                <mat-form-field>
-                    <mat-label>Elige tu Profesión</mat-label>
-                    <mat-select>
-                        <mat-option *ngFor="let profesion of profesiones" [value]="profesion.value">
-                            {{profesion.viewValue}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-        </mat-card-content>
+      <mat-card-header>
+        <div>
+          <mat-card-title>Cv Creator</mat-card-title>
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+        <div
+          style="margin-top: 15px;"
+          fxLayoutAlign="center center"
+          fxLayout="column"
+        >
+          <div
+            class="dropdown-header"
+            *ngIf="auth.userProfile$ | async as profile; else loader"
+            fxLayoutAlign="center center"
+            fxLayout="row"
+          >
+            <p>Bienvenido {{ profile.name }}</p>
+          </div>
+          <div fxLayout="row">
+            <mat-form-field>
+              <mat-label>Elige tu profesión</mat-label>
+              <mat-select>
+                <mat-option>None</mat-option>
+                <mat-option value="1" routerLink="/header">Profesor</mat-option>
+                <mat-option value="2" routerLink="/header"
+                  >Estudiante</mat-option
+                >
+                <mat-option value="3" routerLink="/header"
+                  >Ingeniero</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
     </mat-card>
-</div>
+  </div>
 </div>

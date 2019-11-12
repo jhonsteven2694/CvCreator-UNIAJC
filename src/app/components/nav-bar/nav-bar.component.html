@@ -1,0 +1,36 @@
+<div *ngIf="auth.userProfile$ | async as profile">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-button routerLink="/header">
+        <span>Cv Creator</span>
+      </button>
+      <span class="example-spacer"></span>
+      <mat-icon
+        class="example-icon"
+        aria-hidden="false"
+        aria-label="Example heart icon"
+        >account_circle</mat-icon
+      >
+      <div>
+        <button mat-button [matMenuTriggerFor]="menu">
+          {{ profile.name }}
+        </button>
+        <mat-menu #menu="matMenu">
+          <mat-list>
+            <mat-list-item>Nombre: {{ profile.given_name }}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Apellido: {{ profile.family_name }}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Usuario: {{ profile.nickname }}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Correo: {{ profile.email }}</mat-list-item>
+            <mat-divider></mat-divider>
+            <button mat-button (click)="auth.logout()">
+              Cerrar Sesión
+            </button>
+          </mat-list>
+        </mat-menu>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>

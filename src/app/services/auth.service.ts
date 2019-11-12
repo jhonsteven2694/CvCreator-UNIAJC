@@ -1,12 +1,20 @@
-import { Injectable } from '@angular/core';
-import createAuth0Client from '@auth0/auth0-spa-js';
-import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
-import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from 'rxjs';
-import { tap, catchError, concatMap, shareReplay } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { Injectable } from "@angular/core";
+import createAuth0Client from "@auth0/auth0-spa-js";
+import Auth0Client from "@auth0/auth0-spa-js/dist/typings/Auth0Client";
+import {
+  from,
+  of,
+  Observable,
+  BehaviorSubject,
+  combineLatest,
+  throwError,
+  concat
+} from "rxjs";
+import { tap, catchError, concatMap, shareReplay } from "rxjs/operators";
+import { Router } from "@angular/router";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class AuthService {
   // Create an observable of Auth0 instance of client
@@ -26,7 +34,7 @@ export class AuthService {
   // from: Convert that resulting promise into an observable
   isAuthenticated$ = this.auth0Client$.pipe(
     concatMap((client: Auth0Client) => from(client.isAuthenticated())),
-    tap(res => this.loggedIn = res)
+    tap(res => (this.loggedIn = res))
   );
   handleRedirectCallback$ = this.auth0Client$.pipe(
     concatMap((client: Auth0Client) => from(client.handleRedirectCallback()))
@@ -37,7 +45,7 @@ export class AuthService {
   // Create a local property for login status
   loggedIn: boolean = null;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   // When calling, options can be passed if desired
   // https://auth0.github.io/auth0-spa-js/classes/auth0client.html#getuser
@@ -65,7 +73,7 @@ export class AuthService {
     checkAuth$.subscribe();
   }
 
-  login(redirectPath: string = '/') {
+  login(redirectPath: string = "/") {
     // A desired redirect path can be passed to login method
     // (e.g., from a route guard)
     // Ensure Auth0 client instance exists
@@ -81,28 +89,27 @@ export class AuthService {
   handleAuthCallback() {
     // Call when app reloads after user logs in with Auth0
     const params = window.location.search;
-    if (params.includes('code=') && params.includes('state=')) {
+    if (params.includes("code=") && params.includes("state=")) {
       let targetRoute: string; // Path to redirect to after login processsed
       const authComplete$ = this.handleRedirectCallback$.pipe(
         // Have client, now call method to handle auth callback redirect
         tap(cbRes => {
           // Get and set target redirect route from callback results
-          targetRoute = cbRes.appState && cbRes.appState.target ? cbRes.appState.target : '/';
+          targetRoute =
+            cbRes.appState && cbRes.appState.target
+              ? cbRes.appState.target
+              : "/";
         }),
         concatMap(() => {
           // Redirect callback complete; get user and login status
-          return combineLatest([
-            this.getUser$(),
-            this.isAuthenticated$
-          ]);
+          return combineLatest([this.getUser$(), this.isAuthenticated$]);
         })
       );
       // Subscribe to authentication completion observable
       // Response will be an array of user and login status
-      authComplete$.subscribe(([user, loggedIn]) => {
-        // Redirect to target route after callback processing
-        this.router.navigate([targetRoute]);
-      });
+      return authComplete$;
+    } else {
+      return concat(of([null, null]), throwError("No esta logueado"));
     }
   }
 
@@ -116,5 +123,4 @@ export class AuthService {
       });
     });
   }
-
 }

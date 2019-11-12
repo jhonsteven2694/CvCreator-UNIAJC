@@ -1,67 +1,63 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { LogInComponent } from './components/log-in/log-in.component';
-import { WelcomeComponent } from './components/welcome/welcome.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FirstTemplateComponent } from './components/cv-templates/first-template/first-template.component';
-import { PreviewFirstTemplateComponent } from './components/cv-templates/first-template/preview-first-template/preview-first-template.component';
-import { SecondTemplateComponent } from './components/cv-templates/second-template/second-template.component';
-import { PreviewSecondTemplateComponent } from './components/cv-templates/second-template/preview-second-template/preview-second-template.component';
-import { ThirdTemplateComponent } from './components/cv-templates/third-template/third-template.component';
-import { PreviewThirdTemplateComponent } from './components/cv-templates/third-template/preview-third-template/preview-third-template.component';
-import { HomeComponent } from './components/home/home.component';
-import { CallbackComponent } from './components/callback/callback.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { HeaderComponent } from "./components/header/header.component";
+import { FirstTemplateComponent } from "./components/cv-templates/first-template/first-template.component";
+import { PreviewFirstTemplateComponent } from "./components/cv-templates/first-template/preview-first-template/preview-first-template.component";
+import { SecondTemplateComponent } from "./components/cv-templates/second-template/second-template.component";
+import { PreviewSecondTemplateComponent } from "./components/cv-templates/second-template/preview-second-template/preview-second-template.component";
+import { ThirdTemplateComponent } from "./components/cv-templates/third-template/third-template.component";
+import { PreviewThirdTemplateComponent } from "./components/cv-templates/third-template/preview-third-template/preview-third-template.component";
+import { HomeComponent } from "./components/home/home.component";
+import { CallbackComponent } from "./components/callback/callback.component";
+import { AuthGuard } from "./services/auth.guard";
+import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: "home",
     component: HomeComponent
   },
   {
-    path: 'welcome',
-    component: WelcomeComponent
+    path: "header",
+    component: HeaderComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'login',
-    component: LogInComponent
+    path: "first-template",
+    component: FirstTemplateComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'header',
-    component: HeaderComponent
+    path: "first-template/preview-first-template",
+    component: PreviewFirstTemplateComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'first-template',
-    component: FirstTemplateComponent
-  },
-  {
-    path: 'first-template/preview-first-template',
-    component: PreviewFirstTemplateComponent
-  },
-  {
-    path: 'second-template',
+    path: "second-template",
     component: SecondTemplateComponent
   },
   {
-    path: 'second-template/preview-second-template',
+    path: "second-template/preview-second-template",
     component: PreviewSecondTemplateComponent
   },
   {
-    path: 'third-template',
+    path: "third-template",
     component: ThirdTemplateComponent
   },
   {
-    path: 'third-template/preview-third-template',
+    path: "third-template/preview-third-template",
     component: PreviewThirdTemplateComponent
   },
   {
-    path: 'callback',
-    component: CallbackComponent
+    path: "callback",
+    component: CallbackComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: '**',
-    pathMatch: 'full',
-    redirectTo: 'home'
-  },
+    path: "**",
+    pathMatch: "full",
+    redirectTo: "home"
+  }
 ];
 
 @NgModule({
